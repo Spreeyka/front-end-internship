@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router";
 import { NavLink } from "react-router-dom";
-import validator from "validator";
 import { ReactComponent as Logo } from "./logo.svg";
 import styles from "./EditIntern.module.css";
 import { ReactComponent as GoBackIcon } from "./goBack.svg";
