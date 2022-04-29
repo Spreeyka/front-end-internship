@@ -1,0 +1,194 @@
+.logo {
+  position: absolute;
+  left: 40px;
+  top: 40px;
+}
+
+.goBackLink {
+  color: #222222;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  width: 112px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0px;
+  position: absolute;
+  left: calc(50% - 112px / 2 - 272px);
+  top: 40px;
+}
+
+.goBackLink__editIcon {
+  margin-right: 12px;
+}
+
+.formContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  width: 656px;
+  height: 639px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 40px 80px;
+  background: #f7f7f7;
+  gap: 40px;
+}
+
+.formContainer__header {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 47px;
+  margin: 0;
+}
+
+label {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #222222;
+}
+
+.formContainer__date {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 16px;
+}
+
+input {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 16px;
+  background: #f7f7f7;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  border: 1px solid #222222;
+  border-radius: 0px;
+  position: relative;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+input[type="email"],
+input[type="text"] {
+  width: 496px;
+  height: 48px;
+}
+
+input + span {
+  position: relative;
+  width: 100%;
+}
+
+input:invalid + span {
+  height: 22px;
+}
+
+input:invalid + span::after {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  position: absolute;
+  content: "The field is required";
+  color: #a3270c;
+  left: 0;
+  min-width: 150px;
+  text-align: left;
+  top: 8px;
+}
+
+input:invalid + span::before {
+  content: "";
+  background: url(./invalidIcon.svg) no-repeat 100% 0;
+  position: absolute;
+  right: 65px;
+  top: -35px;
+  width: 22px;
+  height: 22px;
+}
+
+input[type="text"]:invalid + span::before,
+input[type="email"]:invalid + span::before {
+  right: 17px;
+}
+
+input[type="date"]:invalid + span::after {
+  content: "This date is not correct";
+  min-width: 200px;
+  text-align: left;
+}
+
+.dateError::before {
+  content: "Internship start date can't be greater than internship end date";
+  text-align: left;
+  color: #a3270c;
+}
+
+input:focus {
+  box-shadow: 0px 0px 0px 2px #d3f2ff;
+  outline: none;
+  border: 2px solid #222222;
+}
+
+input:invalid {
+  box-shadow: 0px 0px 0px 2px #a3270c;
+}
+
+input[type="date"] {
+  width: 240px;
+  height: 48px;
+  color: #555555;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+input[type="date"]::before {
+  content: "";
+  background: url("./dateIcon.svg"), #f7f7f7;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-left: 1px solid #222222;
+}
+
+input:focus::before {
+  border-left: 2px solid #222222;
+}
+
+button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 40px;
+  width: 224px;
+  height: 48px;
+  background: #222222;
+  border: none;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
