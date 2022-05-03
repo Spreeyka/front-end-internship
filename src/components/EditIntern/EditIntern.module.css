@@ -9,20 +9,17 @@
   text-decoration: none;
   font-weight: 500;
   font-size: 16px;
-  width: 112px;
-  height: 48px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 12px 0px;
+  padding: 12px 0 12px 20px;
   position: absolute;
   left: calc(50% - 112px / 2 - 272px);
   top: 40px;
+  background: url(../../assets/goBackIcon.svg) no-repeat 0 center;
+  background-size: 16px 16px;
 }
 
-.goBackLink__editIcon {
-  margin-right: 12px;
+.goBackLink:focus {
+  filter: opacity(80%);
+  outline: 2px solid #d3f2ff;
 }
 
 .formContainer {
@@ -32,12 +29,24 @@
   margin-right: -50%;
   transform: translate(-50%, -50%);
   width: 656px;
-  height: 639px;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 40px 80px;
   background: #f7f7f7;
+  gap: 40px;
+  margin-top: -40px;
+}
+
+/* removing border of fieldset and adding some styling */
+.formContainer__noBorder {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  margin: 0;
   gap: 40px;
 }
 
@@ -46,10 +55,24 @@
   font-weight: 500;
   font-size: 40px;
   line-height: 47px;
-  margin: 0;
+  float: left;
+  padding: 0;
 }
 
-label {
+/* visually hidden technique to handle fieldset-legend
+for screenreaders */
+
+.visuallyHidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.formContainer__label {
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -57,7 +80,13 @@ label {
   color: #222222;
 }
 
-.formContainer__date {
+.formContainer div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.formContainer .formContainer__date {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -65,7 +94,7 @@ label {
   gap: 16px;
 }
 
-input {
+.formContainer input {
   margin-top: 8px;
   display: flex;
   flex-direction: row;
@@ -78,12 +107,6 @@ input {
   border: 1px solid #222222;
   border-radius: 0px;
   position: relative;
-}
-
-div {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
 }
 
 input[type="email"],
@@ -114,9 +137,11 @@ input:invalid + span::after {
   top: 8px;
 }
 
-input:invalid + span::before {
+/* displaying invalid input icon */
+input:invalid + span::before,
+.dateError::after {
   content: "";
-  background: url(./invalidIcon.svg) no-repeat 100% 0;
+  background: url(../../assets/invalidIcon.svg) no-repeat 100% 0;
   position: absolute;
   right: 65px;
   top: -35px;
@@ -129,16 +154,30 @@ input[type="email"]:invalid + span::before {
   right: 17px;
 }
 
+/* displaying date error */
 input[type="date"]:invalid + span::after {
   content: "This date is not correct";
   min-width: 200px;
   text-align: left;
 }
 
+.dateError {
+  height: 22px;
+}
+
+/* displaying dates error */
 .dateError::before {
   content: "Internship start date can't be greater than internship end date";
   text-align: left;
   color: #a3270c;
+  position: absolute;
+  top: 8px;
+  left: 0;
+}
+
+.dateErrorInput,
+.dateErrorInput:focus {
+  box-shadow: 0px 0px 0px 2px #a3270c;
 }
 
 input:focus {
@@ -159,9 +198,11 @@ input[type="date"] {
   font-weight: 500;
 }
 
+/* input type date is hard to style with css
+so I overlap original content with icon */
 input[type="date"]::before {
   content: "";
-  background: url("./dateIcon.svg"), #f7f7f7;
+  background: url("../../assets/dateIcon.svg"), #f7f7f7;
   background-repeat: no-repeat;
   background-position: center;
   pointer-events: none;
@@ -177,7 +218,7 @@ input:focus::before {
   border-left: 2px solid #222222;
 }
 
-button {
+.submitButton {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -187,8 +228,21 @@ button {
   height: 48px;
   background: #222222;
   border: none;
+  outline: none;
   color: #ffffff;
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
+}
+
+.submitButton:focus {
+  box-shadow: 0px 0px 0px 2px #d3f2ff;
+}
+
+.submitButton:hover {
+  background: #555555;
+}
+
+.submitButton:active {
+  background: #3b3b3b;
 }

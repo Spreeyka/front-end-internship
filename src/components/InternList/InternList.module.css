@@ -6,7 +6,6 @@
 
 .container {
   width: 656px;
-  height: 783px;
   background: #f7f7f7;
   position: absolute;
   top: 50%;
@@ -29,14 +28,14 @@
   height: 47px;
   display: flex;
   justify-content: flex-start;
-  width: 496px;
-  height: 47px;
+  margin: 0;
+  margin-bottom: 40px;
 }
 
 .container__list {
   list-style-type: none;
-  margin: 40px;
   padding: 0;
+  margin: 0;
   width: 496px;
 }
 
